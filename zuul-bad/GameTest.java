@@ -79,7 +79,7 @@ public class GameTest
     }
     private void goAndSee(String direction, String whatShouldBeContained){
         String result = game1.processCommand(new Command("go", direction));
-        //if (!result.contains(whatShouldBeContained))
+        if (!result.contains(whatShouldBeContained))
             fail(result +" does not contain "+whatShouldBeContained);
     }
 }

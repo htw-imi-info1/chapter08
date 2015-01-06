@@ -12,6 +12,7 @@ import org.junit.Test;
  */
 public class CommandWordsTest
 {
+    CommandWords commandWords;
     /**
      * Default constructor for test class CommandWordsTest
      */
@@ -27,6 +28,7 @@ public class CommandWordsTest
     @Before
     public void setUp()
     {
+        commandWords = new CommandWords();
     }
 
     /**
@@ -42,24 +44,24 @@ public class CommandWordsTest
     @Test
     public void isCommandGo()
     {
-        assertEquals(true, CommandWords.isCommand("go"));
+        assertEquals(true, commandWords.isCommand("go"));
     }
 
     @Test
     public void isCommandQuit()
     {
-        assertEquals(true, CommandWords.isCommand("quit"));
+        assertEquals(true, commandWords.isCommand("quit"));
     }
 
     @Test
     public void isCommandHelp()
     {
-        assertEquals(true, CommandWords.isCommand("help"));
+        assertEquals(true, commandWords.isCommand("help"));
     }
      @Test
     public void isNotACommand()
     {
-        assertEquals(false, CommandWords.isCommand("xxx"));
+        assertEquals(false, commandWords.isCommand("xxx"));
     }
 }
 

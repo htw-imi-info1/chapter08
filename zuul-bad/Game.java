@@ -112,7 +112,7 @@ public class Game
     {
 
         if(command.isUnknown()) {
-            return "I don't know what you mean...";
+            return "I don't know what you mean...\n";
         }
 
         String commandWord = command.getCommandWord();

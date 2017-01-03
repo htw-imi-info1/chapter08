@@ -8,7 +8,7 @@ import org.junit.Test;
 /**
  * The test class GameTest.
  *
- * @author  Barbara Kleinen
+ * @author  Barne Kleinen
  */
 public class GameTest
 {

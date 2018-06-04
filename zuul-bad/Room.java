@@ -10,7 +10,7 @@
  * to the neighboring room, or null if there is no exit in that direction.
  * 
  * @author  Michael Kölling and David J. Barnes
- * @version 2011.07.31
+ * @version 2016.02.29
  */
 public class Room 
 {
@@ -41,14 +41,18 @@ public class Room
      */
     public void setExits(Room north, Room east, Room south, Room west) 
     {
-        if(north != null)
+        if(north != null) {
             northExit = north;
-        if(east != null)
+        }
+        if(east != null) {
             eastExit = east;
-        if(south != null)
+        }
+        if(south != null) {
             southExit = south;
-        if(west != null)
+        }
+        if(west != null) {
             westExit = west;
+        }
     }
 
     /**

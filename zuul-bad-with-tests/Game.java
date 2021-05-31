@@ -67,9 +67,25 @@ public class Game
         while (! finished) {
             Command command = parser.getCommand();
             String output = processCommand(command);
-            finished = (output == null);
+            finished = (null == output);
+            if (!finished)
+            {
+                System.out.println(output);
+            }
         }
         System.out.println("Thank you for playing.  Good bye.");
+    }
+
+    /**
+     * This is a further method added by BK to
+     * provide a clearer interface that can be tested:
+     * Game processes a commandLine and returns output.
+     * @param commandLine - the line entered as String
+     * @return output of the command
+     */
+    public String processCommand(String commandLine){
+        Command command = parser.getCommand(commandLine);
+        return processCommand(command);
     }
 
     /**
@@ -104,27 +120,26 @@ public class Game
      * @param command The command to be processed.
      * @return true If the command ends the game, false otherwise.
      */
-    public String processCommand(Command command) 
+    private String processCommand(Command command) 
     {
         boolean wantToQuit = false;
 
         if(command.isUnknown()) {
-            return "I don't know what you mean...";
+            return "I don't know what you mean...";       
         }
-
+        String result = null;
         String commandWord = command.getCommandWord();
         if (commandWord.equals("help")) {
-            return printHelp();
+            result = printHelp();
         }
         else if (commandWord.equals("go")) {
-            return goRoom(command);
+            result = goRoom(command);
         }
         else if (commandWord.equals("quit")) {
-            quit(command);
-            return null;
+            result = quit(command);
         }
 
-        return null;
+        return result ;
     }
 
     // implementations of user commands:
@@ -137,9 +152,14 @@ public class Game
     private String printHelp() 
     {
         return "You are lost. You are alone. You wander"
-        + "around at the university.\n"
-        + "Your command words are:"
-        + "   go quit help";
+        +"\n"
+        + "around at the university."
+        +"\n"
+        +"\n"
+        +"Your command words are:"
+        +"\n"
+        +"   go quit help"
+        +"\n";
     }
 
     /** 
@@ -169,30 +189,28 @@ public class Game
         if(direction.equals("west")) {
             nextRoom = currentRoom.westExit;
         }
-
-        String output = "";
+        String result = "";
         if (nextRoom == null) {
-            output += "There is no door!\n";
+            result += "There is no door!";
         }
         else {
             currentRoom = nextRoom;
-            output += "You are " + currentRoom.getDescription()+"\n";
-            output += "Exits: ";
+            result += "You are " + currentRoom.getDescription()+"\n";
+            result += "Exits: ";
             if(currentRoom.northExit != null) {
-                output += "north ";
+                result += "north ";
             }
             if(currentRoom.eastExit != null) {
-                output += "east ";
+                result += "east ";
             }
             if(currentRoom.southExit != null) {
-                output += "south ";
+                result += "south ";
             }
             if(currentRoom.westExit != null) {
-                output += "west ";
-            }
-            output += "\n";
+                result += "west ";
+            }         
         }
-        return output;
+        return result + "\n";
     }
 
     /** 
@@ -200,14 +218,13 @@ public class Game
      * whether we really quit the game.
      * @return true, if this command quits the game, false otherwise.
      */
-    private boolean quit(Command command) 
+    private String quit(Command command) 
     {
         if(command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
+            return "Quit what?";
         }
         else {
-            return true;  // signal that we want to quit
+            return null;  // signal that we want to quit
         }
     }
 }

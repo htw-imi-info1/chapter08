@@ -1,5 +1,14 @@
 # chapter08
-you can find the original book examples in 6th-ed-complete, 
-and a bad zuul that was made testable in zuul-bad-with-tests. 
-You may ignore the unit tests for now, but may want to revisit
-them after reading the chapter on testing. 
+
+In the [Info1](https://home.htw-berlin.de/~kleinen/info1) class, we will use
+a (Bad) Zuul version with unit tests, 
+which you can find in [https://github.com/htw-imi-info1/exercise09-zuul](https://github.com/htw-imi-info1/exercise09-zuul).
+
+Thus, this repo is **not necessary** for
+ the [info1](https://home.htw-berlin.de/~kleinen/info1) class, 
+but you can use it as reference for the first refactoring. 
+[6th-ed-complete](6th-ed-complete) contains the original examples
+from the book.
+
+
+
